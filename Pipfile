@@ -10,6 +10,8 @@ psycopg2-binary = "*"
 flask-bcrypt = "*"
 pyjwt = "*"
 python-dotenv = "*"
+marshmallow = "*"
+injector = "*"
 
 [dev-packages]
 

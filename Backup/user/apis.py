@@ -1,10 +1,10 @@
-import os
+import os, jwt
 from flask import Blueprint, request
-from user.models import User, bcrypt
-import jwt
+from user.models import User
+from common.bcrypt import bcrypt
 from datetime import datetime, timedelta
-from db import db
 from dotenv import load_dotenv
+from db import db
 
 load_dotenv()
 user_blueprint = Blueprint('user', __name__)
