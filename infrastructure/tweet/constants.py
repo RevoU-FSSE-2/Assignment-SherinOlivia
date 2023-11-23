@@ -1,0 +1,1 @@
+TWEET_DATE_FORMAT = "%Y-%m-%d %H:%M:%S" # 2023-11-21 12:30:00
