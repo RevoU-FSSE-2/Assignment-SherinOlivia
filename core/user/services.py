@@ -16,9 +16,5 @@ class UserService():
         if not user:
             return {"error message": "User not Found"}, 404
 
-        return {
-            'user_id': user.user_id,
-            'username': user.username,
-            'bio': user.bio
-        }, 200
+        return user
 

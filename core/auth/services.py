@@ -27,7 +27,7 @@ class AuthService():
         )
 
         return {
-            'user_id': user_domain.user_id,
+            'user_id': user_domain.id,
             "username": user_domain.username,
             "bio": user_domain.bio
         }, 200
@@ -41,7 +41,7 @@ class AuthService():
         if not valid_password:
             return {"error_message": "Invalid Username/Password"}, 401
         
-        token_payload = {'user_id': valid_user.user_id, 'exp': datetime.now() + timedelta(days=1)}
+        token_payload = {'user_id': valid_user.id, 'exp': datetime.now() + timedelta(days=1)}
         secret_key = os.getenv("SECRET_KEY")
         token = jwt.encode(token_payload, secret_key, algorithm='HS256')
 

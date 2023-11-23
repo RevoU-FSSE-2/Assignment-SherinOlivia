@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 @dataclass
 class UserDomain:
-    user_id: int
+    id: int
     username: str
     password: str
     bio: str

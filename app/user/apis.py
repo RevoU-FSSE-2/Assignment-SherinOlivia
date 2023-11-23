@@ -19,14 +19,14 @@ def get_user():
 
     user_id = token_payload['user_id']
     print('user_id:', user_id)
-    
+
     user = user_service.get_by_id(user_id)
 
     if not user:
         return {"error_message": "User not Found"}, 404
 
     return {
-        'user_id': user.user_id,
+        'user_id': user.id,
         'username': user.username,
         'bio': user.bio
     }, 200

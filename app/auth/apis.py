@@ -60,9 +60,9 @@ def login_user():
     if not result:
         return {"error_message": "Invalid Username/Password"}, 401
 
-    token_payload = {'user_id': result[0], 'exp': datetime.now() + timedelta(days=1)}
-    print("test result:", result[0])
-    secret_key = os.getenv("SECRET_KEY")
-    token = jwt.encode(token_payload, secret_key, algorithm='HS256')
+    # token_payload = {'user_id': result[0], 'exp': datetime.now() + timedelta(days=1)}
+    # print("test result:", result[0])
+    # secret_key = os.getenv("SECRET_KEY")
+    # token = jwt.encode(token_payload, secret_key, algorithm='HS256')
 
-    return {'token': token}, 200
+    return result
