@@ -21,6 +21,8 @@ For this week's assignment, we are tasked to build a simple twitter-like APIs wi
 - SQLAlchemy
 - Bcrypt
 - JWT
+- Marshmallow
+- Injector
 
 ### Contact Me:
 
