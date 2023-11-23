@@ -13,7 +13,7 @@ user_service = injector.get(UserService)
 def get_user():
     token = request.headers.get('Authorization')
     token_payload = decode_jwt(token)
-
+    print("token_payload profile:", token_payload)
     if not token_payload:
         return {"error_message": "Invalid Token"}, 401
 
