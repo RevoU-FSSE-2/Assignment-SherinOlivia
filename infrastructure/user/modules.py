@@ -1,5 +1,5 @@
 from injector import Module, singleton, Binder
-from core.auth.ports import IUserAccessor
+from core.user.ports import IUserAccessor
 from infrastructure.user.adapters import UserAccessor
 
 class UserModule(Module):
