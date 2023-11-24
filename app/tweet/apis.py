@@ -1,8 +1,6 @@
-import os
 from flask import Blueprint, request
 from core.tweet.services import TweetService
 from core.user.services import UserService
-from infrastructure.tweet.models import Tweet
 from infrastructure.tweet.constants import TWEET_DATE_FORMAT
 from app.auth.utils import decode_jwt
 from app.di import injector
@@ -40,10 +38,13 @@ def create_tweet():
     except ValidationError as err:
         return {"error message": err.messages}, 400
 
+    if len(data['tweet']) > 150:
+        return {"error_message": "Tweet Can't be longer than 150 characters"}, 400
+        
     result = tweet_service.create(
         tweet=data['tweet'],
         user_id=user_id,
-        published_at = data.get('published_at', datetime.now().strftime(TWEET_DATE_FORMAT))
+        published_at = data.get('published_at', datetime.utcnow().strftime(TWEET_DATE_FORMAT))
     )
 
     return result

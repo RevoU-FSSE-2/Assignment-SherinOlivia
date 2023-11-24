@@ -1,7 +1,7 @@
 import os, jwt
 from injector import inject
 from core.tweet.ports import ITweetAccessor
-from core.auth.ports import IUserAccessor
+from core.user.ports import IUserAccessor
 from datetime import datetime, timedelta
 
 class TweetService():

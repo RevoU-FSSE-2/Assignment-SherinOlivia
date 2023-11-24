@@ -1,5 +1,5 @@
 from injector import inject
-from core.auth.ports import IUserAccessor
+from core.user.ports import IUserAccessor
 from dotenv import load_dotenv
 
 load_dotenv()

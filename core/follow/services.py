@@ -1,7 +1,7 @@
 import os, jwt
 from injector import inject
 from core.follow.ports import IFollowAccessor
-from core.auth.ports import IUserAccessor
+from core.user.ports import IUserAccessor
 
 class FollowService():
 
