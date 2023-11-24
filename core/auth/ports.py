@@ -1,15 +1,11 @@
 from abc import ABC, abstractmethod
 
-class IUserAccessor(ABC):
+class IHashingAccessor(ABC):
 
     @abstractmethod
-    def create(self, username: str, hashed_password: str, bio: str):
+    def generate(self, value:str) -> str:
         raise NotImplementedError
     
     @abstractmethod
-    def get_by_username(self, username: str):
-        raise NotImplementedError
-    
-    @abstractmethod
-    def get_by_id(self, user_id: int):
+    def check_hash(self, hashed_value: str, value: str) -> bool:
         raise NotImplementedError
