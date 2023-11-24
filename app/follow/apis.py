@@ -1,4 +1,3 @@
-import os
 from flask import Blueprint, request
 from core.follow.services import FollowService
 from core.user.services import UserService
