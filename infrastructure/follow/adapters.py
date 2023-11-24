@@ -10,10 +10,13 @@ class FollowAccessor(IFollowAccessor):
     def follow(self, user_id: int, target_id: int, is_following: bool):
         existing_follow = self.get_follow_relationship(user_id, target_id)
 
+        if user_id == target_id:
+            raise ValueError("Cannot follow yourself.")
+
         if existing_follow:
             existing_follow.is_following = not existing_follow.is_following
             db.session.commit()
-            
+
             return ObjectMapperUtil.map(existing_follow, FollowDomain)
 
         else:    

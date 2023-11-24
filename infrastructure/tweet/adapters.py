@@ -1,5 +1,4 @@
 from core.tweet.models import TweetDomain
-# from core.auth.models import UserDomain
 from core.common.utils import ObjectMapperUtil
 from core.tweet.ports import ITweetAccessor
 from infrastructure.db import db
@@ -12,7 +11,7 @@ class TweetAccessor(ITweetAccessor):
 
     def create(self, tweet: str, user_id: int, published_at: datetime):
         user = User.query.get(user_id)
-        new_tweet = Tweet(user_id=user.id, tweet=tweet, published_at=datetime.now().strftime(TWEET_DATE_FORMAT))
+        new_tweet = Tweet(user_id=user.id, tweet=tweet, published_at=datetime.utcnow().strftime(TWEET_DATE_FORMAT))
         db.session.add(new_tweet)
         db.session.commit()
 
