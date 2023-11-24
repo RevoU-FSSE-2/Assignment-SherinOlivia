@@ -18,12 +18,11 @@ class CreateTweetSchema(Schema):
 def create_tweet():
     token = request.headers.get('Authorization')
     token_payload = decode_jwt(token)
-    print("token_payload tweet:", token_payload)
+    
     if not token_payload:
         return {"error_message": "Invalid Token"}, 401
 
     user_id = token_payload['user_id']
-    print('user_id:', user_id)
 
     user = user_service.get_by_id(user_id)
 
@@ -40,7 +39,7 @@ def create_tweet():
 
     if len(data['tweet']) > 150:
         return {"error_message": "Tweet Can't be longer than 150 characters"}, 400
-        
+
     result = tweet_service.create(
         tweet=data['tweet'],
         user_id=user_id,
